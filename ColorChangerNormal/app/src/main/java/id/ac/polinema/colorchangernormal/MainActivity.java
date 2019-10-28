@@ -22,6 +22,14 @@ public class MainActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		rootView = findViewById(R.id.layout_main);
+		colorViewModel = ViewModelProviders.of(this).get(ColorViewModel.class);
+		rootView.setBackgroundColor(generateRandomColor());
+		rootView.setBackgroundColor(colorViewModel.getColor());
+
+
+
+
+		// Tambahkan event klik pada tombol
 		btnChangeColor = findViewById(R.id.change_color);
 		btnChangeColor.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -31,12 +39,6 @@ public class MainActivity extends AppCompatActivity {
 				colorViewModel.setColor(color);
 			}
 		});
-
-		colorViewModel = ViewModelProviders.of(this).get(ColorViewModel.class);
-		rootView.setBackgroundColor(colorViewModel.getColor());
-		rootView.setBackgroundColor(generateRandomColor());
-
-		// Tambahkan event klik pada tombol
 	}
 
 	private int generateRandomColor(){

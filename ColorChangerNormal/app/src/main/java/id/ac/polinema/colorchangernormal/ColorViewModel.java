@@ -13,10 +13,11 @@ public class ColorViewModel extends AndroidViewModel {
         super(application);
     }
 
-    public int getColor(){
+    public int getColor() {
         return color;
     }
-    public void setColor(int color){
+
+    public void setColor(int color) {
         this.color = color;
     }
 }
